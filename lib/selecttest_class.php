@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class SelectTest extends Modules{ // выбор теста
+	class SelectTest extends Modules{ 
 	
 		private $subject_info;
 		private $test_info;

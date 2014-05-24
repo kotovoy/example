@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class AuthContent extends Modules{ // страница авторизации
+	class AuthContent extends Modules{ 
 	
 		
 		public function __construct($db) {

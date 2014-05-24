@@ -4,7 +4,7 @@
 	require_once "questions_class.php";
 	require_once "stat_class.php";
 	
-	class Manage { // класс отвечающий за регистрацию пользователей
+	class Manage { 
 		
 		private $config;
 		private $user;
@@ -16,14 +16,14 @@
 			session_start();
 			$this->config = new Config();
 			$this->user = new Users($db);
-			$this->data = $this->secureData(array_merge($_POST, $_GET)); // обmеденяем данные переданые методом пост и гет
+			$this->data = $this->secureData(array_merge($_POST, $_GET)); 
 			if($this->data["test_id"]) {
 				$this->question = new Questions($db);	
 				$this->rating = new Stat($db);
 			}
 		}
 		
-		private function secureData($data) { // обрабатывает массив дата
+		private function secureData($data) { 
 			foreach($data as $key => $value) {
 				if (is_array($value)) $this->secureData($value);
 				else $data[$key] = htmlspecialchars($value);	
@@ -31,12 +31,12 @@
 			return $data;
 		}
 		
-		public function redirect($link) { // делает редирект
+		public function redirect($link) { 
 			header("Location: $link");
 			exit;
 		}
 		
-		public function regUser() { // регистрация пользователя
+		public function regUser() { 
 			$link_reg = $this->config->address."?view=reg";
 			$captcha = $this->data["captcha"];
 			if(($_SESSION["rand"] != $captcha) && ($_SESSION["rand"] != "")) {
@@ -60,7 +60,7 @@
 			
 		}
 		
-		public function login() { // авторизация пользователя
+		public function login() { 
 			$login = $this->data["login"];
 			$password = $this->data["password"];
 			$password = $this->hashPassword($password);
@@ -77,7 +77,7 @@
 			}
 		}
 		
-		public function logout() { // логаут
+		public function logout() { 
 			unset($_SESSION["login"]);
 			unset($_SESSION["password"]);
 			return $_SERVER["HTTP_REFERER"];
@@ -116,21 +116,21 @@
 		}
 		
 		
-		private function hashPassword($password) { // хеширует пароль
+		private function hashPassword($password) { 
 			return md5($password.$this->config->secret);
 		}
 		
 		
-		private function unknownError($r) { // неизвестная ошибка
+		private function unknownError($r) { 
 			return $this->returnMessage("UNKNOWN_ERROR", $r);
 		}
 		
-		private function returnMessage($message, $r) { // выводит сообщение и делает редирект
+		private function returnMessage($message, $r) { 
 			$_SESSION["message"] = $message;
 			return $r;
 		}
 		
-		private function returnPageMessage($message, $r) { // выводит сообщение на отдельной странице и делает редирект
+		private function returnPageMessage($message, $r) { 
 			$_SESSION["page_message"] = $message;
 			return $r;
 		}

@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class MessageContent extends Modules{ // страница вывода сообщений
+	class MessageContent extends Modules{ 
 		
 		private $message_title;
 		private $message_text;

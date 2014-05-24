@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class ResultContent extends Modules{ // клас который формирует главную страницу
+	class ResultContent extends Modules{ 
 	
 		private $correct_answers;
 		

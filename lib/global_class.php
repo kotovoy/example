@@ -17,23 +17,23 @@
 			$this->valid = new CheckValid();
 		}
 		
-		public function add ($new_values) { // метод добавления новой записи
+		public function add ($new_values) { 
 			return $this->db->insert($this->table_name, $new_values);
 		}
 		
-		public function edit ($id, $upd_fields) { // метод редактирования записи
+		public function edit ($id, $upd_fields) { 
 			return $this->db->updateOnID($this->table_name, $id, $upd_fields);
 		}
 		
-		protected function delete ($id) { // метод удаления записи
+		protected function delete ($id) { 
 			return $this->db->deleteOnID($this->table_name, $id);
 		}
 		
-		public function deleteAll () { // метод удаления всех записей из таблицы
+		public function deleteAll () { 
 			return $this->db->deleteAll($this->table_name);	
 		}
 		
-		public function getField ($field_out, $field_in, $value_in) { // метод который возвращает значение поля пo другому заданому полю и его значению (например, узнает пароль пользователя у которого логин user)
+		public function getField ($field_out, $field_in, $value_in) { 
 			return $this->db->getField($this->table_name, $field_out, $field_in, $value_in);
 			}
 		
@@ -41,39 +41,39 @@
 			return $this->db->setField($this->table_name, $field, $value, $field_in, $value_in);
 		}
 		 
-		protected function getFieldOnID($id, $field) { // метод получения значения поля по id
+		protected function getFieldOnID($id, $field) { 
 			return $this->db->getFieldOnID($this->table_name, $id, $field); 
 		}
 		
-		protected function setFieldOnID ($id, $field, $value) { // метод заменяет значение поля по id
+		protected function setFieldOnID ($id, $field, $value) { 
 			return $this->db->setFieldOnID($this->table_name, $id, $field, $value);
 		}
 		
-		public function get ($id) { // метод возвращает запись по id
+		public function get ($id) { 
 			return $this->db->getElementOnID($this->table_name, $id);
 		}
 		
-		public function getAll ($order = "", $up = true) { // метод получает все записи из таблицы
+		public function getAll ($order = "", $up = true) { 
 			return $this->db->getAll($this->table_name, $order, $up);
 		}	
 		
-		protected function getAllOnField ($field, $value, $order = "", $up = true) { // метод получает все записи по определенному полю
+		protected function getAllOnField ($field, $value, $order = "", $up = true) { 
 			return $this->db->getAllOnField($this->table_name, $field, $value, $order, $up);
 		}
 		
-		public function getRandomElement ($count) { // метод который возвращает случайные записи
+		public function getRandomElement ($count) { 
 			return $this->db->getRandomElements($this->table_name, $count);
 		}
 		
-		public function getLastID () { // метод возвращает id последней вставленой записи
+		public function getLastID () { 
 			return $this->db->getLastID($this->table_name);
 		}
 		
-		public function getCount () { // метод возвращает количество записей в таблице
+		public function getCount () { 
 			return $this->db->getCount($this->table_name);
 		}
 		
-		protected function isExists ($field, $value) { // метод проверки существования записи в таблице
+		protected function isExists ($field, $value) { 
 			return $this->db->isExists($this->table_name, $field, $value);
 		}
 		

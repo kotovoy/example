@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class FrontPageContent extends Modules{ // клас который формирует главную страницу
+	class FrontPageContent extends Modules{ 
 	
 		private $text;
 		

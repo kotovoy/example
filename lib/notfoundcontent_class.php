@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class NotFoundContent extends Modules{ // страница не найдена
+	class NotFoundContent extends Modules{ 
 	
 		private $subject_info;
 		private $test_info;

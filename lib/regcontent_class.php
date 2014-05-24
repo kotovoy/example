@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class RegContent extends Modules{ // страница регистрации
+	class RegContent extends Modules{ 
 	
 		
 		public function __construct($db) {

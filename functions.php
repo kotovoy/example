@@ -5,7 +5,7 @@
 	$db = new DataBase();
 	$manage = new Manage($db);
 	
-	if ($_POST["reg"]) { // если форма была отправлена, то регестрируем пользователя
+	if ($_POST["reg"]) { 
 		$r = $manage->regUser();	
 	}
 	elseif ($_POST["auth"]) { 

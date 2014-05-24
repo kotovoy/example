@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class Rating extends Modules{ // выбор предмета
+	class Rating extends Modules{ 
 	
 		private $subject_info;
 		private $rating_info;

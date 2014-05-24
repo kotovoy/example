@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class SelectSubject extends Modules{ // выбор предмета
+	class SelectSubject extends Modules{ 
 	
 		private $subject_info;
 		

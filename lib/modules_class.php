@@ -34,14 +34,14 @@
 			
 		}
 		
-		private function getUser() { // метод который получает инфу о пользователе
+		private function getUser() { 
 			$login = $_SESSION["login"];
 			$password = $_SESSION["password"];
 			if ($this->user->checkUser($login, $password)) return $this->user->getUserOnLogin($login);
 			else return false;
 		}
 		
-		public function getContent() { // получаем масив sr (контент страници)
+		public function getContent() { 
 			$sr["title"] = $this->getTitle();
 			$sr["meta_key"] = $this->getKeyWords();
 			$sr["meta_desc"] = $this->getDescription();
@@ -51,12 +51,12 @@
 			return $this->getReplaceTemplate($sr, "main");
 		}
 		
-		abstract protected function getTitle(); // методы которые обязаны быть реализованы в каждом класе (на каждой странице)
+		abstract protected function getTitle(); 
 		abstract protected function getDescription();
 		abstract protected function getKeyWords();
 		abstract protected function getText();
 		
-		protected function getAuthUser() { // формирует авторизацию пользователя
+		protected function getAuthUser() { 
 			if ($this->user_info) {
 				$sr["username"] = $this->user_info["login"];
 				return $this->getReplaceTemplate($sr, "user_panel");	
@@ -73,7 +73,7 @@
 		}
 		
 		
-		private function secureData($data) { // обрабатывает массив дата
+		private function secureData($data) { 
 			foreach($data as $key => $value) {
 				if (is_array($value)) $this->secureData($value);
 				else $data[$key] = htmlspecialchars($value);	
@@ -83,11 +83,11 @@
 		
 		
 		
-		protected function formatDate($time) { // перевод в нормальную дату
+		protected function formatDate($time) { 
 			return date("Y-m-d H:i:s", $time);
 		}
 		
-		protected function getMessage($message = "") { // получаем сообщение
+		protected function getMessage($message = "") { 
 			if ($message == "") {
 				$message = $_SESSION["message"];
 				unset($_SESSION["message"]);
@@ -97,16 +97,16 @@
 		}
 		
 		
-		protected function getTemplate($name) { // получает шаблон и заменяет %address%
+		protected function getTemplate($name) { 
 			$text = file_get_contents($this->config->dir_tmpl.$name.".tpl");
 			return str_replace("%address%", $this->config->address, $text);
 		}
 		
-		protected function getReplaceTemplate($sr, $template) { // заменяет елементы с шаблона которые получает в масиве
+		protected function getReplaceTemplate($sr, $template) { 
 			return $this->getReplaceContent($sr, $this->getTemplate($template));
 		}
 		
-		private function getReplaceContent($sr, $content) { // заменяет елементы с шаблона которые получает в масиве
+		private function getReplaceContent($sr, $content) { 
 			$search = array();
 			$replace = array();
 			$i = 0;

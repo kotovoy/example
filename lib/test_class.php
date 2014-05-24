@@ -1,7 +1,7 @@
 <?php
 	require_once "modules_class.php";
 	
-	class Test extends Modules{ // тест
+	class Test extends Modules{ 
 	
 		private $test_info;
 		
